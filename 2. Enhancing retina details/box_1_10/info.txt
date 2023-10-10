@@ -1,4 +1,0 @@
-box = (1, 10) #rows, cols
-
-# if patch avergae is black, then chnage all black pixels to root of the current vlue
-# if patch averga is non black, change all pixels to patch average
