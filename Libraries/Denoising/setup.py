@@ -1,8 +1,9 @@
 from setuptools import setup
 from Cython.Build import cythonize
+
+#external libraries used in the modules
 import numpy as np
 import cv2
-#from glob import glob
 
 def get_opencv_include():
     build_info = cv2.getBuildInformation()
@@ -12,6 +13,8 @@ def get_opencv_include():
     else:
         return []
 
+
+######### the set up function #######
 setup(
     # list all the modules in the library
     ext_modules = cythonize([
@@ -20,6 +23,7 @@ setup(
         # dont include the "main.py" file 
     ]),
 
+    # get the header files of the external libraries used in the modules
     include_dirs=[np.get_include()] + get_opencv_include(),
 
     install_requires=[
